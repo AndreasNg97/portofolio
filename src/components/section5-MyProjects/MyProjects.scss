@@ -1,0 +1,46 @@
+.MyProjects{
+    height: 200vh;
+}
+
+.ProjectCard{
+    overflow: hidden;
+    background-color: #202020;
+    border: 1px solid rgb(95, 95, 95);
+    transition: 0.5s;
+    opacity: 0.2;
+    transform: scale(0.8);
+    &:hover{
+        box-shadow: 1px 1px 17px 6px rgb(95, 95, 95);
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.cardFocus{
+    box-shadow: 1px 1px 17px 6px rgb(95, 95, 95);
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project-card-left-col{
+    justify-content: space-between;
+
+        p{
+            line-height: 1.8;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+}
+
+.project-card-right-col{
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.video-player{
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: +1;
+}

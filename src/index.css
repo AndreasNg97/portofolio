@@ -1,10 +1,38 @@
+html{
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  background-color: #202020;
+}
+
+.snap{
+  scroll-snap-align: start;
+}
+
+*{
+  margin: 0 !important;
+}
+
+.prim-color{
+  color: #ccc
+}
+h1, h2, h3, h4, h5{
+  color: #ccc;
+}
+p, li{
+  color: #626262;
+}
+
 body {
   margin: 0;
+  scroll-behavior: smooth;
+  background-color: #202020;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
