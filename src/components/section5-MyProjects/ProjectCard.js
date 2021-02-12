@@ -11,13 +11,13 @@ function ProjectCard(props){
     let {name, link, thumbnail, preview, description, technologies} = props.project
     const cardRef = useRef()
     const projectVideo = useRef(null)
-
+/* 
     function playVideo(){
         projectVideo.current.play()
     }
     function resetVideo(){
         projectVideo.current.load()
-    }
+    } */
 
     function techNames(){
         let names = []
@@ -34,44 +34,41 @@ function ProjectCard(props){
             start : 'top center ',
             end: 'bottom center',
             onEnter : () => {
-                playVideo()
+                ScrollTrigger.refresh()
+                /* playVideo() */
                 store.dispatch(currentElementHover(techNames()))
                 cardRef.current.classList.toggle('cardFocus') 
             },
             onEnterBack : () => {
-                playVideo()
+                /* playVideo() */
                 store.dispatch(currentElementHover(techNames()))
                 cardRef.current.classList.toggle('cardFocus') 
             },
             onLeave : () => {
-                resetVideo()
+                /* resetVideo() */
                 store.dispatch(currentElementHover([]))
                 cardRef.current.classList.toggle('cardFocus') 
             },
             onLeaveBack : () => {
-                resetVideo()
+                /* resetVideo() */
                 store.dispatch(currentElementHover([]))
                 cardRef.current.classList.toggle('cardFocus') 
-            },
-            markers : true
+            }
         })
     }
 
     useEffect(() => {
         createScrollTrigger()
-        ScrollTrigger.refresh()
     })
 
     return(
-        <Row ref={cardRef} className="ProjectCard position-relative rounded-lg my-4 ml-4 w-50"
-            onload={() => ScrollTrigger.refresh()}
+        <Row ref={cardRef} className="ProjectCard position-relative rounded-lg my-5 ml-4 w-50"
             onMouseEnter={() => {
-                playVideo()
-                console.log(cardRef)
+                /* playVideo() */
                 store.dispatch(currentElementHover(techNames()))
             }}
             onMouseLeave={() => {
-                resetVideo()
+                /* resetVideo() */
                 store.dispatch(currentElementHover([]))
             }}
             >
@@ -90,7 +87,7 @@ function ProjectCard(props){
                 <div className="border">
                     <img src={thumbnail} className="w-100 h-100" alt={name + ' thumbnail'}/> 
                     <a href={link} target="_blank" rel="noreferrer" >
-                        <video ref={projectVideo} className="video-player w-100 h-100" poster={thumbnail} muted loop src={preview} type="video/mp4"/>
+                      {/*   <video ref={projectVideo} className="video-player w-100 h-100" poster={thumbnail} muted loop src={preview} type="video/mp4"/> */}
                     </a>
                 </div>
             </Col>

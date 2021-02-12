@@ -82,7 +82,7 @@ export const projects = [
                 name : 'CSS3',
                 icon : css3Logo
             },{
-                name : 'JavaScriptES6',
+                name : 'ES6',
                 icon : es6Logo
             },{
                 name : 'Mapbox',

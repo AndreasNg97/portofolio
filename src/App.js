@@ -13,7 +13,7 @@ function App(){
   gsap.registerPlugin(ScrollTrigger)
   const appRef = useRef(null)
   
-  useEffect(() => {
+/*   useEffect(() => {
     const el = appRef.current
     ScrollTrigger.create({
       trigger : el.querySelector('.pinned'),
@@ -22,7 +22,7 @@ function App(){
       pin : true,
       endTrigger : el.querySelector('.scrollPast')
     })
-  })
+  }) */
   
   return(
     <div ref={appRef} className="App">
@@ -30,12 +30,12 @@ function App(){
           < Landingpage />
           < AboutMe />
           < Goals />
-          <div className="pinned">
+{/*           <div className="pinned">
           < Skills/>
-        </div>
-        <div className="scrollPast">
+        </div> */}
+{/*         <div className="scrollPast">
           < MyProjects />  
-        </div>  
+        </div>   */}
     </div>
   )
 }

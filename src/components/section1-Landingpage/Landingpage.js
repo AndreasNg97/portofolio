@@ -6,7 +6,7 @@ import './Landingpage.scss'
 
 function Landingpage() {
     return (
-        <div className="Landingpage d-flex flex-column align-items-center position-relative vh-100 py-xl-5 py-xs-0">
+        <div className="Landingpage d-flex flex-column align-items-center position-relative py-xl-5 py-xs-0">
         
             <Row className="s1-row d-flex justify-content-center mb-xl-4 mb-xs-1">
                 <Col xl={6} xs={12}>
@@ -27,7 +27,6 @@ function Landingpage() {
                 </Col>
             </Row>
 
-            <img src={arrows} className="arrows position-absolute"/>
         </div>
     )
 }

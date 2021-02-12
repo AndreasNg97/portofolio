@@ -1,12 +1,22 @@
-.AboutMe p{
-    line-height: 1.6;
-    font-size: 1.3rem;
+.AboutMe{
+    p{
+        line-height: 1.6;
+        min-width: 20rem;
+        max-width: 25rem;
+    }
+    .text-container{
+    }
 }
 
 .s2-img{
-    width: 90%;
     object-fit: cover;
-    transition: 2s;
     border: 1px solid #909090;
     border-radius: 1rem;
+    min-width: 20rem;
+}
+
+@media only screen and (max-width: 767px){
+    .s2-img{ 
+        max-width: 25rem;
+    }
 }
