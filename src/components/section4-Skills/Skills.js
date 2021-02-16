@@ -1,14 +1,80 @@
 import React, { useEffect, useRef } from 'react'
 import { languages, libraries } from './utils/skillsArrays'
+import { Row, Col, Container } from 'react-bootstrap'
 import './Skills.scss'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { store } from '../../index'
  
 function Skills() {
     gsap.registerPlugin(ScrollTrigger)
     const skillsRef = useRef(null)
 
+
+
+
+    return (
+        <Container fluid id="Skills" className="d-flex flex-column align-items-center justify-content-center vh-100">
+
+            <Row className="skill-section justify-content-center mb-sm-5 mb-3 ">
+                <Col xs={12}>
+                    <h2 className="text-center mb-4">Languages</h2>
+                </Col>
+                <Row className="justify-content-center w-75">
+                    {languages.map((language) => (
+                        <Col xs={4} md={2} className='s4-icon-container d-flex flex-column align-items-center mb-3' key={language.name}>
+                            <img src={language.icon} className='s4-icon' alt={language.name + " logo"} />
+                            <p className="text-to-dissapear text-center mt-2">{language.name}</p>
+                        </Col>
+                    ))}
+                </Row>
+            </Row>
+
+            <Row className="skill-section justify-content-center mt-sm-5 mt-3 ">
+                <Col xs={12}>
+                    <h2 className="text-center mb-4">Libraries</h2>
+                </Col>
+                <Row className="justify-content-center w-75">
+                    {libraries.map((library) => (
+                        <Col xs={4} md={2} className='s4-icon-container d-flex flex-column align-items-center mb-3' key={library.name}>
+                            <img src={library.icon} className='s4-icon' border alt={library.name + " logo"} />
+                            <p className="text-to-dissapear text-center mt-2">{library.name}</p>
+                        </Col>
+                    ))}
+                </Row>
+            </Row>
+
+        </Container>
+    )
+}
+
+export default Skills
+
+/* 
+            <div className="skill-section d-flex flex-column mb-5 align-items-center border border-info">
+                <h2 className=" mb-3">Languages</h2>
+                <div className="d-flex justify-content-around position-relative border border-warning">
+                    {languages.map((language) => (
+                        <div className='s4-icon-container d-flex flex-column align-items-center mx-2 flex-wrap' key={language.name}>
+                            <p className="text-to-dissapear text-center mb-2">{language.name}</p>
+                            <img src={language.icon} className='s4-icon' alt={language.name + " logo"} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="skill-section d-flex flex-column mt-5 align-items-center border border-info">
+                <h2 className=" mb-3">Libraries</h2>
+                <div className="d-flex justify-content-around position-relative border border-warning">
+                    {libraries.map((library) => (
+                        <div className='s4-icon-container d-flex flex-column align-items-center mx-2 flex-wrap' key={library.name}>
+                            <p className="text-to-dissapear text-center mb-2">{library.name}</p>
+                            <img src={library.icon} className='s4-icon' border alt={library.name + " logo"} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+*/
+/* 
     function setPosition(el, position){
         gsap.to(el, {
             position : position,
@@ -77,37 +143,4 @@ function Skills() {
                 
             })
     })
-
-    return (
-        <div ref={skillsRef} className="Skills vh-100 d-flex flex-column flex-wrap justify-content-center">
-
-            <div className="skill-section d-flex flex-column mb-5 align-items-center">
-                <h2 className=" mb-3">Languages</h2>
-                <div className="d-flex justify-content-around position-relative">
-                    {languages.map((language) => (
-                        <div className={`s4-icon-container mx-2 container-${language.class}`} key={language.name}>
-                            <p className="text-to-dissapear text-center mb-2">{language.name}</p>
-                            <img src={language.icon} className={`s4-icon ${language.class}`} alt={language.name + " logo"} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <div className="skill-section d-flex flex-column flex-wrap mt-5 align-items-center">
-                <h2 className=" mb-3">Libraries</h2>
-                <div className="d-flex justify-content-around position-relative">
-                    {libraries.map((library) => (
-                        <div className={`s4-icon-container mx-2 container-${library.class}`} key={library.name}>
-                            <p className="text-to-dissapear text-center mb-2">{library.name}</p>
-                            <img src={library.icon} className={`s4-icon ${library.class}`} border alt={library.name + " logo"} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export default Skills
-
-
+*/

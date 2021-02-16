@@ -1,4 +1,24 @@
+$prim-color : #1a2639;
+$secondary-color : #22314b;
+$color-3 : #c24d2c;
+
 .App{
-    background: #202020;
+    background: $prim-color;
+    h1, h2, h3, h4, h5, p, li{
+        color: #fff;
+      }
+    .NavigationBar{
+        background-color: $secondary-color;
+    }
 }
 
+
+$Co : #162235c7;
+/* 
+
+
+p, li{
+  color: #626262;
+}
+
+*/

@@ -12,16 +12,6 @@ html{
   margin: 0 !important;
 }
 
-.prim-color{
-  color: #ccc
-}
-h1, h2, h3, h4, h5{
-  color: #ccc;
-}
-p, li{
-  color: #626262;
-}
-
 body {
   margin: 0;
   scroll-behavior: smooth;

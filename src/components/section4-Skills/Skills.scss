@@ -1,9 +1,21 @@
-.Skills{
-    overflow-x: hidden;
+#Skills{
     p{
-        white-space: nowrap;
+
     }
 }
 .s4-icon{
-    width: 7rem; 
+    width: 70%; 
+}
+
+.s4-icon-container{
+}
+
+.skill-section{
+    height: auto;
+}
+
+@media only screen and (max-width: 767px){
+    .s4-icon{ 
+        width: 50%;
+    }
 }

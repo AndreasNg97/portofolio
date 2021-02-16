@@ -6,7 +6,7 @@ import './Landingpage.scss'
 
 function Landingpage() {
     return (
-        <div className="Landingpage d-flex flex-column align-items-center position-relative py-xl-5 py-xs-0">
+        <div id="Landingpage" className="d-flex flex-column align-items-center position-relative py-xl-5 py-xs-0">
         
             <Row className="s1-row d-flex justify-content-center mb-xl-4 mb-xs-1">
                 <Col xl={6} xs={12}>
@@ -16,8 +16,8 @@ function Landingpage() {
 
             <Row className="s1-row d-flex justify-content-center my-4">
                 <Col xl={6} xs={12} className="text-center">
-                    <h1 className="mb-2 prim-color">andreas nguyen</h1>
-                    <h4 className="prim-color"><span className="s1-line mr-2">oo</span>Frontend Developer<span className="s1-line ml-2">oo</span></h4>
+                    <h1 className="mb-2 ">andreas nguyen</h1>
+                    <h4 className=""><span className="s1-line mr-2">oo</span>Frontend Developer<span className="s1-line ml-2">oo</span></h4>
                 </Col>
             </Row>
 

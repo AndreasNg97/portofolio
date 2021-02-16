@@ -1,0 +1,14 @@
+
+.NavigationBar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    a{
+        color: white;
+        &:hover{
+            color: white;
+            text-decoration: none;
+        }
+    }
+}

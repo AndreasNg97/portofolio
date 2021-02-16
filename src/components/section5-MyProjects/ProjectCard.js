@@ -1,97 +1,138 @@
-import React, { useEffect, useRef } from 'react'
-import {Row, Col} from 'react-bootstrap'
-import { currentElementHover } from '../../redux/actionCreator'
-import { store } from '../../index'
+import React, { useEffect, useRef, useState } from 'react'
+import Modal from 'react-modal'
+import { Col } from 'react-bootstrap'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import ProjectModal from './ProjectModal'
 
-
-function ProjectCard(props){
+function ProjectCard(props) {
+    let { name, link, thumbnail, preview, description, technologies } = props.project
     gsap.registerPlugin(ScrollTrigger)
-    let {name, link, thumbnail, preview, description, technologies} = props.project
-    const cardRef = useRef()
-    const projectVideo = useRef(null)
-/* 
-    function playVideo(){
-        projectVideo.current.play()
-    }
-    function resetVideo(){
-        projectVideo.current.load()
-    } */
+    const cardRef = useRef(null)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)'
+        },
+        overlay: {
+            backgroundColor : '#162235c7'
+        }
+    };
 
-    function techNames(){
-        let names = []
+    function getTechs() {
+        let techs = []
         technologies.forEach(tech => {
-            names.push(tech.name)
+            techs.push(tech)
         });
-        return names
+        return techs
     }
 
-    function createScrollTrigger(){
-        const el = cardRef.current
-        ScrollTrigger.create({
-            trigger : el,
-            start : 'top center ',
-            end: 'bottom center',
-            onEnter : () => {
-                ScrollTrigger.refresh()
-                /* playVideo() */
-                store.dispatch(currentElementHover(techNames()))
-                cardRef.current.classList.toggle('cardFocus') 
-            },
-            onEnterBack : () => {
-                /* playVideo() */
-                store.dispatch(currentElementHover(techNames()))
-                cardRef.current.classList.toggle('cardFocus') 
-            },
-            onLeave : () => {
-                /* resetVideo() */
-                store.dispatch(currentElementHover([]))
-                cardRef.current.classList.toggle('cardFocus') 
-            },
-            onLeaveBack : () => {
-                /* resetVideo() */
-                store.dispatch(currentElementHover([]))
-                cardRef.current.classList.toggle('cardFocus') 
-            }
+    function overlayAppear() {
+        gsap.to(cardRef.current.querySelector('.project-card-overlay'), {
+            opacity: 1,
+            duration: 0.4
+        })
+        gsap.fromTo(cardRef.current.querySelectorAll('h3, .icon-container'),
+            {
+                opacity: 0,
+                y: -30,
+                duration: 0.1,
+                stagger: 0.1
+            },{
+                opacity: 1,
+                y: 0,
+                duration: 0.1,
+                stagger: 0.1
+        })
+        gsap.fromTo(cardRef.current.querySelector('button'),
+            {
+                opacity: 0,
+                y: -30,
+                duration: 0.1
+            },{
+                opacity: 1,
+                y: 0,
+                duration: 0.1
         })
     }
 
+    function overlayDissapear() {
+        gsap.to(cardRef.current.querySelector('.project-card-overlay'), {
+            opacity: 0,
+            duration: 0.4
+        })
+        gsap.to(cardRef.current.querySelectorAll('h3, .icon-container'), {
+            opacity: 0,
+            y: -30,
+            duration: 0.2,
+            stagger: 0.1
+        })
+        gsap.to(cardRef.current.querySelector('button'), {
+            opacity: 0,
+            y: 30,
+            duration: 0.1
+        })
+    }
     useEffect(() => {
-        createScrollTrigger()
-    })
+        const cardAppear = gsap.fromTo(cardRef.current,
+            {
+                opacity: 0,
+                y: -50,
+                duration: 0.5
+            }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5
+        }
+        )
+        ScrollTrigger.create({
+            trigger: cardRef.current,
+            animation: cardAppear,
+            start: '20% 70%',
+            end: '80% top',
+            toggleActions: 'play reverse play none'
+        })
+    },[])
 
-    return(
-        <Row ref={cardRef} className="ProjectCard position-relative rounded-lg my-5 ml-4 w-50"
+    return (
+        <Col md={6} lg={5} ref={cardRef} className="ProjectCard position-relative p-0" style={{ backgroundImage: `url(${thumbnail})` }}
             onMouseEnter={() => {
-                /* playVideo() */
-                store.dispatch(currentElementHover(techNames()))
+                overlayAppear()
             }}
             onMouseLeave={() => {
-                /* resetVideo() */
-                store.dispatch(currentElementHover([]))
-            }}
-            >
-
-            <Col className="project-card-left-col p-0 pt-2 d-flex flex-column">
+                overlayDissapear()
+            }}>
+            <div className="project-card-overlay d-flex flex-column justify-content-around align-items-center position-absolute pb-3 w-100 h-100">
                 <div>
-                    <a href={link} target="_blank" rel="noreferrer" style={{color:'#ccc'}}>
-                        <h4 className="prim-color text-center">{name}</h4>
-                    </a>
-                    <p className="mt-3 mx-4">{description}</p>
+                    <h3 className="mb-2 text-center">{name}</h3>
+                    <div className="icon-container d-flex justify-content-center">
+                        {getTechs().map((tech, i) => (
+                            <img src={tech.icon} className="tech-icon mx-1" alt={`${tech.name} + icon`} key={i} />
+                        ))}
+                    </div>
                 </div>
+                <button 
+                    onClick={() => {
+                        setIsModalOpen(true) 
+                        overlayDissapear()}}>
+                        LEARN MORE
+                </button>
+            </div>
+            <img src={thumbnail} className="invisible position-relative" style={{ width: '100%' }} />
 
-            </Col>
-
-            <Col xs={7} className="project-card-right-col p-0">
-                <div className="border">
-                    <img src={thumbnail} className="w-100 h-100" alt={name + ' thumbnail'}/> 
-                    <a href={link} target="_blank" rel="noreferrer" >
-                      {/*   <video ref={projectVideo} className="video-player w-100 h-100" poster={thumbnail} muted loop src={preview} type="video/mp4"/> */}
-                    </a>
-                </div>
-            </Col>
-        </Row>
+            <Modal
+                isOpen={isModalOpen}
+                onRequestClose={() => setIsModalOpen(false)}
+                style={customStyles}
+                ariaHideApp={false}>
+                    <ProjectModal />
+            </Modal>
+        </Col>
     )
 }
 

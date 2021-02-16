@@ -1,46 +1,47 @@
-.MyProjects{
-    height: 220vh;
-}
-
-.ProjectCard{
-    overflow: hidden;
-    background-color: #202020;
-    border: 1px solid rgb(95, 95, 95);
-    transition: 0.5s;
-    opacity: 0.2;
-    transform: scale(0.8);
-    &:hover{
-        box-shadow: 1px 1px 17px 6px rgb(95, 95, 95);
-        opacity: 1;
-        transform: scale(1);
+#MyProjects2{
+    p{
+        color: white;
+    }
+    h3{
+        font-size:1rem;
     }
 }
 
-.cardFocus{
-    box-shadow: 1px 1px 17px 6px rgb(95, 95, 95);
-    opacity: 1;
-    transform: scale(1);
+.s5-project-row{
+    width: 75%;
 }
 
-.project-card-left-col{
-    justify-content: space-between;
-
-        p{
-            line-height: 1.8;
-            font-size: 1rem;
-            font-weight: 400;
+.ProjectCard{
+    background-size: contain;
+    background-repeat: no-repeat;
+    button{
+        padding: 0.5rem;
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        transition: 0.5s;
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #272727;
         }
+        &:focus{
+            background-color: rgba(199, 199, 199, 0.795);
+            color: #272727;
+        }
+    }
 }
 
-.project-card-right-col{
-    justify-content: space-between;
-    overflow: hidden;
+.project-card-overlay{
+    background-color: rgba(26, 26, 26, 0.95);
+    opacity: 0;
+    .tech-icon{
+        width: 1.8rem;
+    }
 }
 
-.video-player{
-    object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: +1;
+
+@media only screen and (max-width: 1200px){
+    .s5-project-row{ 
+        width: 100%;
+    }
 }

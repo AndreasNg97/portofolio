@@ -8,6 +8,7 @@ import osloCitybikesImg from '../img/oslo-citybikes-img.png'
 import osloCitybikesPreview from '../img/oslo-citybikes-preview.mp4'
 import ufcImg from '../img/UFC249-img.png'
 import ufcPreview from '../img/UFC249-preview.mp4'
+import memeoryGameImg from '../img/meme-ory-game-img-2.png'
 
 import html5Logo from '../../../shared/img/languages/html5-logo.svg'
 import css3Logo from '../../../shared/img/languages/css3-logo.svg'
@@ -89,13 +90,13 @@ export const projects = [
                 icon : mapboxLogo
             },
         ]
-    }, {
-        name: 'Oslo Citybikes',
-        link: 'https://andreasng97.github.io/oslo-citybikes',
-        thumbnail: osloCitybikesImg,
-        preview : osloCitybikesPreview,
+    },{
+        name : 'Meme-ory Game',
+        link : 'https://andreasng97.github.io/memory-game/',
+        thumbnail : memeoryGameImg,
+        preview : '',
         description : `
-            A web application showing available bikes and bike-docks in Oslo.`,
+            A Meme-ory game with awesome dynamic images, and nyan cats.`,
         technologies : [
             {
                 name : 'HTML5',
@@ -106,12 +107,9 @@ export const projects = [
             },{
                 name : 'ES6',
                 icon : es6Logo
-            },{
-                name : 'Mapbox',
-                icon : mapboxLogo
             },
         ]
-    }, {
+    },{
         name: 'UFC 249 Stats and Info Page',
         link: 'https://andreasng97.github.io/react-hoved-prosjekt/',
         thumbnail: ufcImg,
@@ -136,5 +134,27 @@ export const projects = [
                 icon : chartjsLogo
             },
         ]
-    },
+    },{
+        name: 'Oslo Citybikes',
+        link: 'https://andreasng97.github.io/oslo-citybikes',
+        thumbnail: osloCitybikesImg,
+        preview : osloCitybikesPreview,
+        description : `
+            A web application showing available bikes and bike-docks in Oslo.`,
+        technologies : [
+            {
+                name : 'HTML5',
+                icon : html5Logo
+            },{
+                name : 'CSS3',
+                icon : css3Logo
+            },{
+                name : 'ES6',
+                icon : es6Logo
+            },{
+                name : 'Mapbox',
+                icon : mapboxLogo
+            },
+        ]
+    }
 ]
