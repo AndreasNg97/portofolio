@@ -1,17 +1,27 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import ProjectCard from './ProjectCard'
 import { projects } from './utils/projects'
 import { Row } from 'react-bootstrap'
-import './MyProjects.scss'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useInView } from 'react-hook-inview'
+import './MyProjects.scss'
+import { store } from '../../index'
+import { currentSectionInView } from '../../redux/actionCreator'
 
 function MyProjects(){
     gsap.registerPlugin(ScrollTrigger)
-    const triggerRefresh = useRef(null)
+    
+    const [sectionRef, inView] = useInView({threshold : 0.4})
+
+    useEffect(() => {
+        if(inView){
+            store.dispatch(currentSectionInView(3))
+        }
+    },[inView])
     
     useEffect(() => {
-        const el = triggerRefresh.current
+        const el = sectionRef.current
         ScrollTrigger.create({
             trigger : el,
             start : 'top bottom',
@@ -21,9 +31,9 @@ function MyProjects(){
         })
     })
     return(
-        <div ref={triggerRefresh} id="MyProjects" className="d-flex justify-content-center align-items-center">
-            <Row className="s5-project-row justify-content-center p-5">
-                {projects.map((project, i) =>(
+        <div ref={sectionRef} id="MyProjects" className="d-flex justify-content-center align-items-center p-5">
+            <Row className="s5-project-row justify-content-center py-5">
+                {projects.map((project) =>(
                     <ProjectCard project={project} key={project.link}/>
                 ))}
             </Row>

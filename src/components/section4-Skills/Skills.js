@@ -1,19 +1,25 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { languages, libraries } from './utils/skillsArrays'
 import { Row, Col, Container } from 'react-bootstrap'
 import './Skills.scss'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
- 
+import { useInView } from 'react-hook-inview' 
+import { store } from '../../index'
+import { currentSectionInView } from '../../redux/actionCreator'
+
 function Skills() {
     gsap.registerPlugin(ScrollTrigger)
-    const skillsRef = useRef(null)
+    const [sectionRef, inView] = useInView({threshold : 0.4})
 
 
-
-
+    useEffect(() => {
+        if(inView){
+            store.dispatch(currentSectionInView(2))
+        }
+    },[inView])
     return (
-        <Container fluid id="Skills" className="d-flex flex-column align-items-center justify-content-center vh-100">
+        <Container ref={sectionRef} fluid id="Skills" className="d-flex flex-column align-items-center justify-content-center vh-100">
 
             <Row className="skill-section justify-content-center mb-sm-5 mb-3 ">
                 <Col xs={12}>

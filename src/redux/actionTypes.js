@@ -1,1 +1,1 @@
-export const NOW_HOVERING = 'nowHovering'
+export const SECTION_INVIEW = 'sectionInView'

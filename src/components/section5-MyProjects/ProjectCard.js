@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProjectModal from './ProjectModal'
 
 function ProjectCard(props) {
-    let { name, link, thumbnail, preview, description, technologies } = props.project
+    let { name, thumbnail, technologies } = props.project
     gsap.registerPlugin(ScrollTrigger)
     const cardRef = useRef(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -17,10 +17,15 @@ function ProjectCard(props) {
             right: 'auto',
             bottom: 'auto',
             marginRight: '-50%',
-            transform: 'translate(-50%, -50%)'
+            transform: 'translate(-50%, -50%)',
+            padding: '0',
+            border: '0',
+            borderRadius: '0',
+            backgroundColor: '#22314b'
+            //#22314b ##1a2639
         },
         overlay: {
-            backgroundColor : '#162235c7'
+            backgroundColor : '#0b1524fb'
         }
     };
 
@@ -100,7 +105,7 @@ function ProjectCard(props) {
     },[])
 
     return (
-        <Col md={6} lg={5} ref={cardRef} className="ProjectCard position-relative p-0" style={{ backgroundImage: `url(${thumbnail})` }}
+        <Col md={12} lg={5} ref={cardRef} className="ProjectCard position-relative p-0 m-2" style={{ backgroundImage: `url(${thumbnail})` }}
             onMouseEnter={() => {
                 overlayAppear()
             }}
@@ -123,14 +128,14 @@ function ProjectCard(props) {
                         LEARN MORE
                 </button>
             </div>
-            <img src={thumbnail} className="invisible position-relative" style={{ width: '100%' }} />
+            <img src={thumbnail} className="invisible position-relative" style={{ width: '100%' }} alt='fill'/>
 
             <Modal
                 isOpen={isModalOpen}
                 onRequestClose={() => setIsModalOpen(false)}
                 style={customStyles}
                 ariaHideApp={false}>
-                    <ProjectModal />
+                <ProjectModal project={props.project}/>
             </Modal>
         </Col>
     )

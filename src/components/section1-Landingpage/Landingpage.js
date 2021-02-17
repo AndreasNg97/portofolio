@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Row, Col} from 'react-bootstrap'
 import profilePicture from './img/profil.jpeg'
-import arrows from './img/two-arrows.svg'
+import { useInView } from 'react-hook-inview'
+import { store } from '../../index'
+import { currentSectionInView } from '../../redux/actionCreator'
 import './Landingpage.scss'
 
 function Landingpage() {
+    const [sectionRef, inView] = useInView({threshold : 0.4})
+
+
+    useEffect(() => {
+        if(inView){
+            store.dispatch(currentSectionInView(0))
+        }
+    },[inView])
+    
     return (
-        <div id="Landingpage" className="d-flex flex-column align-items-center position-relative py-xl-5 py-xs-0">
+        <div ref={sectionRef} id="Landingpage" className="d-flex flex-column align-items-center position-relative py-xl-5 py-xs-0">
         
             <Row className="s1-row d-flex justify-content-center mb-xl-4 mb-xs-1">
                 <Col xl={6} xs={12}>

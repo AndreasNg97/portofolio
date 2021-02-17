@@ -1,8 +1,8 @@
 import * as actions from './actionTypes'
 
-export function currentElementHover(el){
+export function currentSectionInView(el){
     return{
-        type : actions.NOW_HOVERING,
+        type : actions.SECTION_INVIEW,
             el : el
     }
 }

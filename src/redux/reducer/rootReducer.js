@@ -1,8 +1,8 @@
-import technologiesReducer from './technologiesReducer'
+import inViewReducer from './inViewReducer'
 import { combineReducers } from "redux"
 
 const rootReducer = combineReducers({
-    technologiesReducer : technologiesReducer
+    inViewReducer : inViewReducer
 })
 
 export default rootReducer

@@ -9,6 +9,7 @@ import osloCitybikesPreview from '../img/oslo-citybikes-preview.mp4'
 import ufcImg from '../img/UFC249-img.png'
 import ufcPreview from '../img/UFC249-preview.mp4'
 import memeoryGameImg from '../img/meme-ory-game-img-2.png'
+import memeoryGamePreview from '../img/meme-ory-game-preview.mp4'
 
 import html5Logo from '../../../shared/img/languages/html5-logo.svg'
 import css3Logo from '../../../shared/img/languages/css3-logo.svg'
@@ -29,7 +30,8 @@ export const projects = [
         preview : bmwPreview,
         description : `
             A small non-responsive webpage showcasing BMW i8.
-            This is a rendition of one of my first projects ever.`,
+            This is a rendition of one of my first projects ever.
+            Decided to remake this website in React because of the simple, yet elegant animations.`,
         technologies : [
             {
                 name : 'React',
@@ -52,7 +54,8 @@ export const projects = [
         preview : analyticsPreview,
         description : `
             My implementation of a case which Diggit/Sci-code provided.
-            It is a prototype of an analytics page made for Innovasjon Norge.`,
+            It is a prototype of an analytics page made for Innovasjon Norge, so the interactions is limited.
+            The colors on this project is absolutely gorgeous.`,
         technologies : [
             {
                 name : 'React',
@@ -74,7 +77,8 @@ export const projects = [
         thumbnail: earthquakeImg,
         preview : earthquakePreview,
         description : `
-            This is a simple web application that shows earthquakes that has happend the last 30 days.`,
+            This is a simple web application that shows earthquakes that has happend the last 30 days, it also shows magnitude, significance and time of occurance. This is also one of my first projects ever made. 
+            API provided from USGS.gov`,
         technologies : [
             {
                 name : 'HTML5',
@@ -94,9 +98,10 @@ export const projects = [
         name : 'Meme-ory Game',
         link : 'https://andreasng97.github.io/memory-game/',
         thumbnail : memeoryGameImg,
-        preview : '',
+        preview : memeoryGamePreview,
         description : `
-            A Meme-ory game with awesome dynamic images, and nyan cats.`,
+            A Meme-ory game with awesome dynamic images, and nyan cats.
+            Made this game for a case provided by VG. The challenge was to make a memory game with pure HTML, CSS and JavaScript. I could decide on the looks and diffrent Bells and Whistles.`,
         technologies : [
             {
                 name : 'HTML5',
@@ -115,7 +120,7 @@ export const projects = [
         thumbnail: ufcImg,
         preview : ufcPreview,
         description : `
-            A website that is showcasing the event UFC 249. It provides stats and info of the fighters on the event.`,
+            A website that is showcasing the event UFC 249. It provides stats and info of the fighters on the event and also compares the fighters. You can also log in to mark fighters as favorites and such.(This is not possible using Github pages unfortunatly)`,
         technologies : [
             {
                 name : 'React',
@@ -140,7 +145,7 @@ export const projects = [
         thumbnail: osloCitybikesImg,
         preview : osloCitybikesPreview,
         description : `
-            A web application showing available bikes and bike-docks in Oslo.`,
+            This was a case provided by Ardoq. The challenge was to use the API provided by Oslo Bysykkel to show available bikes and bike-docks around in Oslo`,
         technologies : [
             {
                 name : 'HTML5',

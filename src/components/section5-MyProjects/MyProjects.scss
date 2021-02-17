@@ -1,25 +1,27 @@
-#MyProjects2{
-    p{
-        color: white;
+#MyProjects{
+    background-color: #0b1524fb;
+    .s5-project-row{
+        width: 75%;
     }
-    h3{
-        font-size:1rem;
-    }
+
 }
 
-.s5-project-row{
-    width: 75%;
-}
 
 .ProjectCard{
     background-size: contain;
     background-repeat: no-repeat;
+    p{ color: white; }
+    h3{ 
+        font-size: 1.5vw;
+        user-select: none;
+    }
     button{
         padding: 0.5rem;
         background-color: transparent;
         border: 1px solid white;
         color: white;
         transition: 0.5s;
+        user-select: none;
         &:hover{
             background-color: rgba(255, 255, 255, 0.9);
             color: #272727;
@@ -29,19 +31,78 @@
             color: #272727;
         }
     }
-}
 
-.project-card-overlay{
-    background-color: rgba(26, 26, 26, 0.95);
-    opacity: 0;
-    .tech-icon{
-        width: 1.8rem;
+    .project-card-overlay{
+        background-color: rgba(26, 26, 26, 0.95);
+        opacity: 0;
+        .tech-icon{
+            width: 1.8rem;
+            user-select: none;
+        }
     }
 }
+
+.ProjectModal{
+    color: rgb(206, 206, 206);
+    h3{
+        color: white;
+        font-size: 1.7rem;
+    }
+    p{
+        font-size: 1rem;
+        line-height: 1.9;
+    }
+    button{
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        padding: 0.5rem;
+        transition: 0.3s;
+        &:hover{
+            background-color: #07101f;
+        }
+    }
+    video{
+        width: 100%;
+        border-bottom: 3px solid black;
+    }
+}
+
+
+.ReactModal__Overlay--after-open{
+
+}
+
+.ReactModal__Content{
+    border: 0 !important;
+    border-radius: 0 !important;    
+    padding: 0 !important;
+    width: 60%;
+}
+
 
 
 @media only screen and (max-width: 1200px){
     .s5-project-row{ 
         width: 100%;
+    }
+    .ReactModal__Content{
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 768px){
+    .ReactModal__Content{
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 576px){
+    .ReactModal__Content{
+        width: 100%;
+        h3{
+            font-size: 1.5rem;
+        }
+        p{
+            font-size:0.8rem;
+        }
     }
 }
