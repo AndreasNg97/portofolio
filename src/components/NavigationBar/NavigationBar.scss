@@ -1,19 +1,22 @@
+@import "../../styles/variables";
+
 .NavigationBar{
+    background-color: $secondary-color;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 100;
     a{
-        color: white;
         &:hover{
-            color: white;
+            color: $text-color;
             text-decoration: none;
         }
     }
 }
 
 .highlighted{
-    border-bottom: 2px solid #c24d2c;
+    border-bottom: 2px solid $tertiary-color
+;
 }
 
 //  text-decoration: underline #c24d2c;

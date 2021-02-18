@@ -32,7 +32,7 @@ function MyProjects(){
     })
     return(
         <div ref={sectionRef} id="MyProjects" className="d-flex justify-content-center align-items-center p-5">
-            <Row className="s5-project-row justify-content-center py-5">
+            <Row className="s4-projects-row justify-content-center py-5">
                 {projects.map((project) =>(
                     <ProjectCard project={project} key={project.link}/>
                 ))}

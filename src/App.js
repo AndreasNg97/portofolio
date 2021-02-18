@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react'
-import './App.scss'
+import './styles/App.scss'
 import NavigationBar from './components/NavigationBar/NavigationBar'
 import Landingpage from './components/section1-Landingpage/Landingpage'
 import AboutMe from './components/section2-AboutMe/AboutMe'
-import Skills from './components/section4-Skills/Skills'
-import MyProjects from './components/section5-MyProjects/MyProjects'
+import Skills from './components/section3-Skills/Skills'
+import MyProjects from './components/section4-MyProjects/MyProjects'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 

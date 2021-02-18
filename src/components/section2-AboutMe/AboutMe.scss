@@ -1,5 +1,7 @@
+@import "../../styles/variables";
+
 #AboutMe{
-    background-color: #0b1524fb;
+    background-color: $dark-prim-color;
     p{
         line-height: 1.6;
         min-width: 20rem;
@@ -11,7 +13,6 @@
 
 .s2-img{
     object-fit: cover;
-    border: 1px solid #909090;
     border-radius: 1rem;
     min-width: 20rem;
 }

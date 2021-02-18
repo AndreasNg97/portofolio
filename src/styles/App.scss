@@ -1,0 +1,16 @@
+@import "./variables";
+
+.App{
+    background: $prim-color;
+    h1, h2, h3, h4, h5, p, a{
+        color: $text-color;
+      }
+}
+/* 
+
+
+p, li{
+  color: #626262;
+}
+
+*/

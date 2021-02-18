@@ -1,3 +1,4 @@
+@import "../../styles/variables";
 #Landingpage{
     height: 100vh;
     .arrows{
@@ -12,7 +13,7 @@
 }
 
 .s1-line{
-    text-decoration: line-through #c24d2c 1px;
+    text-decoration: line-through $tertiary-color 1px;
     color: transparent;
     user-select: none;
 }

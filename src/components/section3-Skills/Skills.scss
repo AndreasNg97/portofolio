@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+
+#Skills{
+    .skill-icon{
+        width: 70%; 
+    }
+    @media only screen and (max-width: 767px){
+        .skill-icon{ 
+            width: 50%;
+        }
+    }
+}
+
+
+

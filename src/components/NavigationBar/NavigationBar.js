@@ -18,16 +18,17 @@ function NavigationBar(){
     ]
 
     function highlightNav(index){
-        navArr.forEach((eachNav) => {
-            eachNav.current.classList = 'p-2'
-            navArr[index].current.classList.add('highlighted')
-        })
+        // import variables scss
+        const highlightedNav = navArr.filter((nav, i) => i === index )
+        const notHighlightedNav = navArr.filter((nav, i) => i !== index)
+
+        notHighlightedNav.forEach((nav) => { nav.current.classList = 'p-1' })
+        highlightedNav[0].current.classList.add('highlighted')
     }
 
 
     useEffect(() => {
         store.subscribe(() => {
-            console.log(store.getState().inViewReducer[0])
             highlightNav(store.getState().inViewReducer[0])
         })
         
@@ -36,10 +37,10 @@ function NavigationBar(){
         <Container fluid className="NavigationBar pb-2">
             <Row className="justify-content-center">
                 <Col lg={4} xl={3}className=" d-flex justify-content-around">
-                    <a ref={nav_0} onClick={() => highlightNav(0)} className="p-1" href='#Landingpage'>Home</a>
-                    <a ref={nav_1} onClick={() => highlightNav(1)} className="p-1" href='#AboutMe'>About</a>
-                    <a ref={nav_2} onClick={() => highlightNav(2)} className="p-1" href='#Skills'>Skills</a>
-                    <a ref={nav_3} onClick={() => highlightNav(3)} className="p-1" href='#MyProjects'>Projects</a>
+                    <a ref={nav_0} className="p-1" href='#Landingpage'>Home</a>
+                    <a ref={nav_1} className="p-1" href='#AboutMe'>About</a>
+                    <a ref={nav_2} className="p-1" href='#Skills'>Skills</a>
+                    <a ref={nav_3} className="p-1" href='#MyProjects'>Projects</a>
                 </Col>
             </Row>
         </Container>

@@ -88,11 +88,11 @@ function ProjectCard(props) {
             {
                 opacity: 0,
                 y: -50,
-                duration: 0.5
+                duration: 1
             }, {
             opacity: 1,
             y: 0,
-            duration: 0.5
+            duration: 1
         }
         )
         ScrollTrigger.create({

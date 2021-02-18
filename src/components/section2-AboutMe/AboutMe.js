@@ -1,6 +1,6 @@
 import React,{ useEffect } from 'react'
 import {Row, Col} from 'react-bootstrap'
-import placeholder1 from './img/placeholder-1.JPG'
+import placeholder1 from './img/hehe.png'
 import './AboutMe.scss'
 import { useInView } from 'react-hook-inview'
 import { store } from '../../index'
@@ -17,8 +17,8 @@ function AboutMe(){
     return(
         <div ref={sectionRef} id="AboutMe" className="vh-100">
             <Row className="h-100 justify-content-center">
-                <Col sm={12} md={4} className="d-flex justify-content-center align-items-center mx-md-4 mx-lg-0">
-                    <div className="text-container">
+                <Col sm={12} md={4} className="d-flex justify-content-end p-0 align-items-center mx-md-4 mx-lg-0 ">
+                    <div className="text-container ">
                         <h3 className="mb-2 ">Who am I?</h3>
                         <p className="">
                             Lorem ipsum dolor sit amet, <span className="">consectetur adipiscing elit.</span> Cras feugiat elit a pulvinar tristique. Vestibulum luctus ex justo, sit amet ullamcorper eros hendrerit eget. Mauris pharetra viverra massa, id sodales diam.
